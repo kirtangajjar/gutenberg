@@ -150,7 +150,7 @@ export function usePasteHandler( props ) {
 				return;
 			}
 
-			if ( pastePlainText ) {
+			if ( pastePlainText || ( ! files.length && ! html ) ) {
 				onChange( insert( value, create( { text: plainText } ) ) );
 				return;
 			}
