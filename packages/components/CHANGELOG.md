@@ -2,9 +2,27 @@
 
 ## Unreleased
 
+### Bug Fix
+
+-   Components: Fix `Slot`/`Fill` Emotion `StyleProvider` ([#38237](https://github.com/WordPress/gutenberg/pull/38237))
+-   Reduce height and min-width of the reset button on `ComboBoxControl` for consistency. ([#38020](https://github.com/WordPress/gutenberg/pull/38020))
+-   Removed unused `rememo` dependency ([#38388](https://github.com/WordPress/gutenberg/pull/38388)).
+-   Added `__unstableInputWidth` to `UnitControl` type definition ([#38429](https://github.com/WordPress/gutenberg/pull/38429)).
+-   Fixed typing errors for `ColorPicker` ([#38430](https://github.com/WordPress/gutenberg/pull/38430)).
+-   Updated destructuring of `Dropdown` props to be TypeScript friendly ([#38431](https://github.com/WordPress/gutenberg/pull/38431)).
+-   Added `ts-nocheck` to `ColorIndicator` so it can be used in typed components ([#38433](https://github.com/WordPress/gutenberg/pull/38433)).
+-   Added `cx` as a dependency of `useMemo` across the whole package, in order to recalculate the classnames correctly when a component is rendered across more than one `StyleProvider` ([#38541](https://github.com/WordPress/gutenberg/pull/38541)).
+
+### Enhancements
+
+-   Update the visual design of the `Spinner` component. ([#37551](https://github.com/WordPress/gutenberg/pull/37551))
+
+## 19.3.0 (2022-01-27)
+
 ### Enhancements
 
 -   Refine `ExternalLink` to be same size as the text, to appear more as a glyph than an icon. ([#37859](https://github.com/WordPress/gutenberg/pull/37859))
+-   Updated `ToolsPanel` header icon to only show "plus" icon when all items are optional and all are currently hidden ([#38262](https://github.com/WordPress/gutenberg/pull/38262))
 
 ### Bug Fix
 
@@ -14,6 +32,8 @@
 -   Prevent keyDown events from propagating up in `CustomSelectControl` ([#30557](https://github.com/WordPress/gutenberg/pull/30557))
 -   Mark `children` prop as optional in `SelectControl` ([#37872](https://github.com/WordPress/gutenberg/pull/37872))
 -   Add memoization of callbacks and context to prevent unnecessary rerenders of the `ToolsPanel` ([#38037](https://github.com/WordPress/gutenberg/pull/38037))
+-   Fix space between icons and rail `RangeControl` ([#36935](https://github.com/WordPress/gutenberg/pull/36935))
+-   Increase z-index of `ConfirmDialog` to render on top of parent `Popover` components ([#37959](https://github.com/WordPress/gutenberg/pull/37959))
 
 ### Experimental
 
@@ -44,6 +64,7 @@
 -   Normalized label line-height and spacing within the `ToolsPanel` ([36387](https://github.com/WordPress/gutenberg/pull/36387))
 -   Remove unused `reakit-utils` from peer dependencies ([#37369](https://github.com/WordPress/gutenberg/pull/37369)).
 -   Update all Emotion dependencies to the latest version to ensure they work correctly with React types ([#37365](https://github.com/WordPress/gutenberg/pull/37365)).
+-   `DateTimePicker`: Fix the date format associated to the `is12Hour` prop ([#37465](https://github.com/WordPress/gutenberg/pull/37465))
 -   Allowed `ToolsPanel` to register items when `panelId` is `null` due to multiple block selection ([37216](https://github.com/WordPress/gutenberg/pull/37216)).
 
 ### Enhancements

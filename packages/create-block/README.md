@@ -206,11 +206,17 @@ The following configurable variables are used with the template files. Template 
 -   `licenseURI` (default: `'https://www.gnu.org/licenses/gpl-2.0.html'`)
 -   `version` (default: `'0.1.0'`)
 -   `wpScripts` (default: `true`)
--   `wpEnv` (default: `false`)
+-   `wpEnv` (default: `false`) - enables integration with the `@wordpress/env` package and adds the `env` command to the package.json.
 -   `npmDependencies` (default: `[]`) – the list of remote npm packages to be installed in the project with [`npm install`](https://docs.npmjs.com/cli/v8/commands/npm-install) when `wpScripts` is enabled.
 -   `folderName` (default: `.`) – the location for the `block.json` file and other optional block files generated from block templates included in the folder set with the `blockTemplatesPath` setting.
 -   `editorScript` (default: `'file:./build/index.js'`)
 -   `editorStyle` (default: `'file:./build/index.css'`)
 -   `style` (default: `'file:./build/style-index.css'`)
 
-<br/><br/><p align="center"><img src="https://s.w.org/style/images/codeispoetry.png?1" alt="Code is Poetry." /></p>
+## Contributing to this package
+
+This is an individual package that's part of the Gutenberg project. The project is organized as a monorepo. It's made up of multiple self-contained software packages, each with a specific purpose. The packages in this monorepo are published to [npm](https://www.npmjs.com/) and used by [WordPress](https://make.wordpress.org/core/) as well as other software projects.
+
+To find out more about contributing to this package or Gutenberg as a whole, please read the project's main [contributor guide](https://github.com/WordPress/gutenberg/tree/HEAD/CONTRIBUTING.md).
+
+<br /><br /><p align="center"><img src="https://s.w.org/style/images/codeispoetry.png?1" alt="Code is Poetry." /></p>
