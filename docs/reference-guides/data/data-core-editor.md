@@ -1043,12 +1043,9 @@ _Related_
 
 ### createUndoLevel
 
-Returns an action object used in signalling that undo history record should
-be created.
+> **Deprecated** Since WordPress 6.0
 
-_Returns_
-
--   `Object`: Action object.
+Action that creates an undo history record.
 
 ### disablePublishSidebar
 
@@ -1221,7 +1218,9 @@ restore last popped state.
 
 ### refreshPost
 
-Action generator for handling refreshing the current post.
+> **Deprecated** Since WordPress 6.0.
+
+Action for refreshing the current post.
 
 ### removeBlock
 
@@ -1264,16 +1263,10 @@ _Parameters_
 
 ### resetPost
 
+> **Deprecated** Since WordPress 6.0.
+
 Returns an action object used in signalling that the latest version of the
 post has been received, either by initialization or save.
-
-_Parameters_
-
--   _post_ `Object`: Post object.
-
-_Returns_
-
--   `Object`: Action object.
 
 ### savePost
 
