@@ -5,6 +5,7 @@ import { useRef } from '@wordpress/element';
 import { useRefEffect } from '@wordpress/compose';
 import { getFilesFromDataTransfer } from '@wordpress/dom';
 import { pasteHandler } from '@wordpress/blocks';
+import { escapeHTML } from '@wordpress/escape-html';
 import {
 	isEmpty,
 	insert,
@@ -128,6 +129,13 @@ export function usePasteHandler( props ) {
 			const files = [ ...getFilesFromDataTransfer( clipboardData ) ];
 			const isInternal = clipboardData.getData( 'rich-text' ) === 'true';
 
+			// hasPastedPlainText differs from pastePlainText as in pastePlainText
+			// is a prop which is useful for rich text areas that can process
+			// any plain text, including multiline plain text. hasPastedPlainText
+			// gets it's data from JS clipboard event to determine if the pasted text
+			// is plaintext. This text needs to be processed differently.
+			const hasPastedPlainText = plainText && ! html && ! files.length;
+
 			// If the data comes from a rich text instance, we can directly use it
 			// without filtering the data. The filters are only meant for externally
 			// pasted content and remove inline styles.
@@ -150,7 +158,7 @@ export function usePasteHandler( props ) {
 				return;
 			}
 
-			if ( pastePlainText || ( ! files.length && ! html ) ) {
+			if ( pastePlainText ) {
 				onChange( insert( value, create( { text: plainText } ) ) );
 				return;
 			}
@@ -220,6 +228,10 @@ export function usePasteHandler( props ) {
 				mode = 'BLOCKS';
 			}
 
+			if ( hasPastedPlainText ) {
+				plainText = escapeHTML( plainText );
+			}
+
 			const content = pasteHandler( {
 				HTML: html,
 				plainText,
@@ -229,7 +241,12 @@ export function usePasteHandler( props ) {
 			} );
 
 			if ( typeof content === 'string' ) {
-				let valueToInsert = create( { html: content } );
+				let escapedContent = content;
+				// Avoid re-escaping
+				if ( ! hasPastedPlainText ) {
+					escapedContent = escapeHTML( content );
+				}
+				let valueToInsert = create( { html: escapedContent } );
 
 				// If the content should be multiline, we should process text
 				// separated by a line break as separate lines.
