@@ -241,12 +241,7 @@ export function usePasteHandler( props ) {
 			} );
 
 			if ( typeof content === 'string' ) {
-				let escapedContent = content;
-				// Avoid re-escaping
-				if ( ! hasPastedPlainText ) {
-					escapedContent = escapeHTML( content );
-				}
-				let valueToInsert = create( { html: escapedContent } );
+				let valueToInsert = create( { html: content } );
 
 				// If the content should be multiline, we should process text
 				// separated by a line break as separate lines.
